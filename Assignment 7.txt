@@ -1,0 +1,238 @@
+----------------Assignment-7-------------------
+
+//1. Write a program to find the Nth term of the Fibonacci series.
+#include<stdio.h>
+int main(){
+    int n,prev=0,curr=1,nxt=0;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+   for(int i=0;i<n-1;i++)
+    {
+        nxt=prev+curr;
+        prev=curr;
+        curr=nxt;
+    }
+    printf("The term is %d ",nxt);
+return 0;
+}
+
+
+//2. Write a program to print first N terms of Fibonacci series
+#include<stdio.h>
+int main(){
+    int n,prev=0,curr=1,nxt=0;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+printf("The fibonacci series is \n");
+    printf("%d ",curr);
+   for(int i=0;i<n-1;i++)
+    {
+        nxt=prev+curr;
+        printf("%d ",nxt);
+        prev=curr;
+        curr=nxt;
+    }
+
+return 0;
+}
+
+//3. Write a program to check whether a given number is there in the Fibonacci series or not.
+#include<stdio.h>
+int main(){
+    int n,prev=0,curr=1,nxt=0;
+    printf("Enter a number: ");
+    scanf("%d",&n);
+    if(n==1)
+        printf("Number exist in series");
+  else{
+     for(int i=0;1;i++)
+    {
+        nxt=prev+curr;
+        prev=curr;
+        curr=nxt;
+        if(nxt==n){
+            printf("Number exist in series");
+            break;
+        }
+        if(nxt>n){
+
+            printf("Number not exist in series");
+            break;
+        }
+    }
+  }
+
+return 0;
+}
+
+//4. Write a program to calculate HCF of two numbers
+#include<stdio.h>
+int main(){
+    int num1,num2,HCF;
+    printf("Enter two numbers: ");
+    scanf("%d%d",&num1,&num2);
+    int min = num1<num2?num1:num2;
+    for(int i=1;i<=min;i++)
+    {
+        if(num1%i==0&&num2%i==0)
+            HCF=i;
+    }
+    printf("HCF of %d and %d is %d",num1,num2,HCF);
+return 0;
+}
+
+//5. Write a program to check whether two given numbers are co-prime numbers or not
+#include<stdio.h>
+int main(){
+    int num1,num2,is_coprime=0;
+    printf("Enter two numbers: ");
+    scanf("%d%d",&num1,&num2);
+    int min = num1<num2?num1:num2;
+    for(int i=1;i<=min;i++)
+    {
+        if(num1%i==0&&num2%i==0)
+            is_coprime=i;
+    }
+    if(is_coprime==1)
+        printf("Entered numbers are co-prime");
+    else
+        printf("Entered numbers are not co-prime");
+return 0;
+}
+
+//6. Write a program to print all Prime numbers under 100
+#include<stdio.h>
+int main(){
+ int flag=0;
+ for(int n=1;n<=100;n++)
+   {
+       flag=0;
+       for(int i=2;i<=n/2;i++)
+    {
+        if(n%i==0)
+        flag=1;
+    }
+     if(n==1)
+         flag=1;
+     if(flag==0)
+    printf("%d ",n);
+   }
+
+return 0;
+}
+
+//7. Write a program to print all Prime numbers between two given numbers
+#include<stdio.h>
+int main(){
+ int flag=0,a,b;
+ printf("Enter the two numbers: ");
+ scanf("%d%d",&a,&b);
+ for(int n=a;n<=b;n++)
+   {
+       flag=0;
+       for(int i=2;i<=n/2;i++)
+    {
+        if(n%i==0)
+        flag=1;
+    }
+     if(n==1)
+         flag=1;
+     if(flag==0)
+    printf("%d ",n);
+   }
+return 0;
+}
+
+//8. Write a program to find next Prime number of a given number
+#include<stdio.h>
+int main(){
+ int flag=0,a;
+ printf("Enter the number to find its next prime : ");
+ scanf("%d",&a);
+ for(int n=a;1;n++)
+   {
+       flag=0;
+       for(int i=2;i<=n/2;i++)
+    {
+        if(n%i==0)
+        flag=1;
+    }
+     if(n==1)
+         flag=1;
+    if(n==a)
+        flag==1;
+    else
+     {  if(flag==0)
+        {printf("%d ",n);
+        break;}
+     }
+
+   }
+return 0;
+}
+
+//9. Write a program to check whether a given number is an Armstrong number or not
+#include<stdio.h>
+int main()
+{
+    int number,count=0,temp,sum=0,rem=0;
+    printf("Enter a number: ");
+    scanf("%d",&number);
+    temp=number;
+    while(number)
+    {
+        count++;
+        number=number/10;
+    }
+    number=temp;
+    for(int i=1;i<=count;i++)
+        {
+            rem=number%10;
+            number=number/10;
+            sum = sum + pow(rem,count);
+
+        }
+      if(sum==temp){
+        printf("Entered number is Armstrong number");
+      }
+      else
+      printf("Entered number is not a Armstrong number");
+
+    return 0;
+}
+
+//10. Write a program to print all Armstrong numbers under 1000
+#include<stdio.h>
+#include<math.h>
+int main()
+{
+    int number,count=0,temp,sum=0,rem=0;
+
+    for(int number=0;number<=1000;number++)
+    {   if(number==0)
+          printf("0 ");
+      else{temp=number;
+         count=0;
+         sum=0;
+        while(number)
+    {
+        count++;
+        number=number/10;
+    }
+    number=temp;
+
+    for(int i=1;i<=count;i++)
+        {
+            rem=number%10;
+            number=number/10;
+            sum = sum + pow(rem,count);
+
+        }
+        number=temp;
+      if(sum==temp)
+        printf("%d ",sum);}
+
+    }
+
+    return 0;
+}
